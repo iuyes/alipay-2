@@ -21,9 +21,7 @@ class Sign {
 
     public function verify($data)
     {
-        // $sign = $data['sign'];
-        // unset($data['sign_type']);
-        // unset($data['sign']);
-        // return $this->generate($data) == $sign;
+        $sign = $data['sign'];
+        return $this->generate(query_filter($data)) == $sign;
     }
 }
