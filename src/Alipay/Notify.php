@@ -18,8 +18,8 @@ class Notify {
 
     public function verify($data)
     {
-        if (Sign::make($config['key'])->verify($data)) {
-            return Remote::get(notify_url($config['pid'], $notify_id))->getBody == 'true';
+        if (Sign::make($this->config['key'])->verify($data)) {
+            return Remote::get(notify_url($this->config['pid'], $data['notify_id']))->getBody == 'true';
         }
         return false;
     }
