@@ -1,7 +1,5 @@
 <?php namespace Alipay;
 
-use GuzzleHttp\Client as Remote;
-
 class Notify {
 
     protected $config;
@@ -19,7 +17,7 @@ class Notify {
     public function verify($data)
     {
         if (Sign::make($this->config['key'])->verify($data)) {
-            return Remote::get(notify_url($this->config['pid'], $data['notify_id']))->getBody == 'true';
+            return \Guzzle\Http\StaticClient::get(notify_url($this->config['pid'], $data['notify_id']))->getBody() == 'true';
         }
         return false;
     }
