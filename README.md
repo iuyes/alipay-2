@@ -1,3 +1,14 @@
+# Alipay
+
+A package for alipay.
+
+## Installation
+
+Require the package "menglr/alipay": "dev-master" via Composer in your composer.json
+
+## Usage
+
+```php
 <?php namespace Alipay;
 
 require __DIR__.'/vendor/autoload.php';
@@ -18,3 +29,8 @@ $options = [
 $url = Alipay::make(__DIR__.'/config.yml')->create_partner_trade_by_buyer_url($options);
 
 var_dump($url);
+```
+
+## License
+
+[MIT License](http://opensource.org/licenses/MIT)
